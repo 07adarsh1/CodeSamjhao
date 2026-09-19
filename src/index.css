@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    background-color: #0c0d12;
+    color: #f4f4f5;
+    overflow-x: hidden;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+}
+
+/* Typography Classes */
+.font-funky {
+  font-family: 'Bungee', cursive, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.font-syne {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Marquee Animation */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Neo-Brutalist Chunky Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #18181b;
+  border-left: 2px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #6366F1;
+  border: 2px solid #000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #06B6D4;
+}
+
+/* Neo-Brutalist Shadow & Border Utilities */
+.neo-box {
+  background: #141419;
+  border: 2px solid #000;
+  box-shadow: 5px 5px 0px #000;
+}
+
+.neo-box-light {
+  background: #181820;
+  border: 2px solid #27272a;
+  box-shadow: 4px 4px 0px #000;
+}
+
+.neo-btn {
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0px #000;
+  transition: all 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.neo-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000;
+}
+
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #000 !important;
+}
+
+/* Hazard Warning Stripes */
+.hazard-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    #000000,
+    #000000 12px,
+    #6366F1 12px,
+    #6366F1 24px
+  );
+}
+
+.hazard-stripes-pink {
+  background: repeating-linear-gradient(
+    -45deg,
+    #000000,
+    #000000 12px,
+    #FF007F 12px,
+    #FF007F 24px
+  );
+}
+
+.hazard-stripes-red {
+  background: repeating-linear-gradient(
+    -45deg,
+    #000000,
+    #000000 12px,
+    #EF4444 12px,
+    #EF4444 24px
+  );
+}
+
+/* Glitch / Shake Animation on Trigger */
+@keyframes microJitter {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-1px, 1px) rotate(-0.5deg); }
+  40% { transform: translate(1px, -1px) rotate(0.5deg); }
+  60% { transform: translate(-1px, -0.5px) rotate(-0.2deg); }
+  80% { transform: translate(1px, 0.5px) rotate(0.2deg); }
+}
+
+.hover-jitter:hover {
+  animation: microJitter 0.3s ease-in-out infinite;
+}
+
+/* Stamp Effect */
+.neo-stamp {
+  display: inline-block;
+  border: 2px dashed currentColor;
+  padding: 2px 8px;
+  font-family: 'Permanent Marker', cursive;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
